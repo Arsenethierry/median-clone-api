@@ -1,6 +1,7 @@
 import Header from '@/components/header'
 import './globals.css'
 import type { Metadata } from 'next'
+import { ThemeProvider } from '@/components/themes/darkmode-theme-provider'
 
 export const metadata: Metadata = {
   title: 'brandspace ltd',
@@ -15,8 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Header />
         {children}
+        </ThemeProvider>
         </body>
     </html>
   )
